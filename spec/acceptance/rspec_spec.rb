@@ -1,12 +1,11 @@
 require 'spec_helper'
 
-RSpec.describe "Integration with RSpec", type: %i[dry_validation] do
-
+RSpec.describe 'Integration with RSpec', type: %i[dry_validation] do
   subject(:schema_class) do
     Class.new(Dry::Validation::Contract) do
       register_macro(:email) do
         key.failure('must_be_a_valid_email') if value.is_a?(String) &&
-            !value.match?(/\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i)
+                                                !value.match?(/\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i)
       end
 
       register_macro(:precision) do |macro:|

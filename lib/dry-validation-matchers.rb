@@ -1,1 +1,1 @@
-require "dry/validation/matchers"
+require 'dry/validation/matchers'
